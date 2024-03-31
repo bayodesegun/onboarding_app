@@ -1,5 +1,11 @@
 <template>
   <div style="overflow-y: auto; overflow-x: hidden;">
+    <!-- Key -->
+    <p>
+      <b>Legend:</b>
+      <v-icon size="30" icon="mdi-walk" color="purple accent-3" /> => YOU
+      <v-icon class="ml-2" size="20" icon="mdi-walk" color="cyan darken-1" /> => Your colleagues
+    </p>
     <!-- The container for both stair cases and the base -->
     <div
       style="
@@ -26,6 +32,7 @@
         >
           <!-- Students + Step -->
           <v-card
+            :id="`student-stair-${activity.order}`"
             style="
               display: flex;
               flex-direction: column;
@@ -133,6 +140,7 @@
 
             <!-- The staircase steps -->
             <v-card
+              :id="`stair-step-${activity.order}`"
               :height="30 * activity.order"
               :color="
                 index === activities.length - 1
@@ -157,6 +165,7 @@
       <div style="width: 100%; display: flex; flex-direction: row;">
         <v-card
           v-for="(activity, index) in activities"
+          :id="`ladder-base-${activity.order}`"
           :key="index"
           :color="
             index === activities.length - 1
@@ -174,6 +183,7 @@
             </h6>
             <p class="text-center">
               <v-btn
+                :id="`take-training-btn-${activity.order}`"
                 class="mt-2 text-none"
                 :color="
                   activity.order <= current

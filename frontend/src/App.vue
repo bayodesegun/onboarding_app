@@ -19,6 +19,7 @@
             text
             icon
             fab
+            title="Click to log out"
             @click.prevent="user = null"
           >
             {{ user }}
@@ -33,6 +34,7 @@
                 <h2>Your journey to the finish line</h2>
                 <v-divider class="my-2" />
                 <v-progress-linear
+                  id="progress-bar"
                   :model-value="progress.completed / progress.total * 100"
                   color="green"
                   height="20"
@@ -40,6 +42,7 @@
                   {{ progress.completed / progress.total * 100 }}%
                 </v-progress-linear>
                 <LadderBoard
+                  id="ladder-board"
                   class="mt-2"
                   :activities="activities"
                   :progress="progress"

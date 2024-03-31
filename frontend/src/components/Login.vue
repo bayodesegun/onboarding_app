@@ -15,6 +15,7 @@
             :rules="[required]"
             class="mb-2"
             label="Username"
+            id="username-field"
             clearable
           />
           <v-btn
@@ -24,6 +25,7 @@
             size="large"
             type="submit"
             variant="elevated"
+            id="login-btn"
             block
           >
             Log In
